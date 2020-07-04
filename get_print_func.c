@@ -1,5 +1,4 @@
-#include "printf.h"
-#include <stdarg.h>
+#include "holberton.h"
 
 int (*get_print_func(char *s))(va_list)
 {
