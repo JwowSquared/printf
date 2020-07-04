@@ -9,6 +9,10 @@ void (*get_print_func(char c))(va_list, char **)
 		{"d", &printInteger},
 		{"i", &printInteger},
 		{"b", &printBinary},
+		{"u", &printUnsigned},
+		{"o", &printOctal},
+		{"x", &printHex},
+		{"X", &printHex_upper},
 		{NULL, NULL}
 	};
 	int i = 0;
