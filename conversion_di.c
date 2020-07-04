@@ -2,23 +2,26 @@
 
 void printInteger(va_list input, char **index)
 {
-	int out = va_arg(input, int);
-	if (out < 0)
+	unsigned int out;
+	int in = va_arg(input, int);
+	if (in < 0)
 	{
 		_putchar('-', index);
-		int_recursion(out, index, -1);
+		out = in * -1;
 	}
 	else
-		int_recursion(out, index, 1);
+		out = in;
+
+	int_recursion(out, index);
 }
 
-void int_recursion(int i, char **index, int negative)
+void int_recursion(unsigned int i, char **index)
 {
-	int digit;
+	unsigned int digit;
 
 	if (i == 0)
 		return;
-	digit = i % 10 * negative;
-	int_recursion(i / 10, index, negative);
+	digit = i % 10;
+	int_recursion(i / 10, index);
 	_putchar(digit + 48, index);
 }
