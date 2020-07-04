@@ -1,6 +1,6 @@
 #include "holberton.h"
 
-int (*get_print_func(char *s))(va_list)
+int (*get_print_func(char c))(va_list)
 {
 	spec specs[] = {
 		{"c", &printChar},
@@ -15,7 +15,7 @@ int (*get_print_func(char *s))(va_list)
 
 	while (specs[i].f != NULL)
 	{
-		if (*(specs[i].key) == *s)
+		if (*(specs[i].key) == c)
 			return (specs[i].f);
 		i++;
 	}
