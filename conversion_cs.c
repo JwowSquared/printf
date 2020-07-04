@@ -21,3 +21,10 @@ int printString(va_list input)
 	}
 	return (count);
 }
+
+int printPercent(va_list input)
+{
+	(void)input;
+	_putchar('%');
+	return (1);
+}
