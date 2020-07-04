@@ -1,5 +1,4 @@
-#include "printf.h"
-#include <stdarg.h>
+#include "holberton.h"
 
 int printInteger(va_list input)
 {

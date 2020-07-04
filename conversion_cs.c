@@ -1,5 +1,4 @@
-#include "printf.h"
-#include <stdarg.h>
+#include "holberton.h"
 
 int printChar(va_list input)
 {
