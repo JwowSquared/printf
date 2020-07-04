@@ -5,6 +5,7 @@ int (*get_print_func(char *s))(va_list)
 	spec specs[] = {
 		{"c", &printChar},
 		{"s", &printString},
+		{"%", &printPercent},
 		{"d", &printInteger},
 		{"i", &printInteger},
 		{"b", &printBinary},
