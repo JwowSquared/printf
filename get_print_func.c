@@ -1,4 +1,5 @@
 #include "printf.h"
+#include <stdarg.h>
 
 int (*get_print_func(char *s))(va_list)
 {
@@ -7,6 +8,7 @@ int (*get_print_func(char *s))(va_list)
 		{"s", &printString},
 		{"d", &printInteger},
 		{"i", &printInteger},
+		{"b", &printBinary},
 		{NULL, NULL}
 	};
 	int i = 0;
