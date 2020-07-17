@@ -12,7 +12,7 @@ int printString(va_list input)
 	int count = 0;
 	char *str;
 
-	str = va_arg(input, const char *);
+	str = va_arg(input, char *);
 	if (str == NULL)
 		return (0);
 	while (str[count])
