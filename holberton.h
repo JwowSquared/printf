@@ -14,7 +14,7 @@ typedef struct specifier
 int _printf(const char *str, ...);
 int _putchar(char c);
 int printInteger(va_list input);
-int int_recursion(int i, int negative);
+int int_recursion(unsigned int i);
 int printChar(va_list input);
 int printString(va_list input);
 int printPercent(va_list input);
