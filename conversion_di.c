@@ -1,24 +1,24 @@
 #include "holberton.h"
 
-int printInteger(va_list input)
+void printInteger(va_list input, char **index)
 {
 	int out = va_arg(input, int);
 	if (out < 0)
 	{
-		_putchar('-');
-		return (int_recursion(out, -1));
+		_putchar('-', index);
+		int_recursion(out, index, -1);
 	}
-	return (int_recursion(out, 1));
+	else
+		int_recursion(out, index, 1);
 }
 
-int int_recursion(int i, int negative)
+void int_recursion(int i, char **index, int negative)
 {
-	int digit, total;
+	int digit;
 
 	if (i == 0)
-		return (0);
+		return;
 	digit = i % 10 * negative;
-	total = 1 + int_recursion(i / 10, negative);
-	_putchar(digit + 48);
-	return (total);
+	int_recursion(i / 10, index, negative);
+	_putchar(digit + 48, index);
 }

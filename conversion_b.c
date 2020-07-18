@@ -1,25 +1,24 @@
 #include "holberton.h"
 
-int printBinary(va_list input)
+void printBinary(va_list input, char **index)
 {
 	unsigned int out = va_arg(input, unsigned int);
 	if (out == 0)
 	{
-		_putchar(out + 48);
-		return (1);
+		_putchar(out + 48, index);
+		return;
 	}
-	return (binary_recursion(out));
+	binary_recursion(out, index);
 }
 
-int binary_recursion(unsigned int i)
+void binary_recursion(unsigned int i, char **index)
 {
-	int remainder, total;
+	unsigned int remainder;
 
 	if (i == 0)
-		return (0);
+		return;
 
 	remainder = i % 2;
-	total = 1 + binary_recursion(i / 2);
-	_putchar(remainder + 48);
-	return (total);
+	binary_recursion(i / 2, index);
+	_putchar(remainder + 48, index);
 }
