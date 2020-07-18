@@ -1,6 +1,6 @@
 #include "holberton.h"
 
-int (*get_print_func(char c))(va_list)
+void (*get_print_func(char c))(va_list, char **)
 {
 	spec specs[] = {
 		{"c", &printChar},

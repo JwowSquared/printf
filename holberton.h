@@ -8,18 +8,18 @@
 typedef struct specifier
 {
 	char *key;
-	int (*f)(va_list);
+	void (*f)(va_list, char **);
 } spec;
 
 int _printf(const char *str, ...);
-int _putchar(char c);
-int printInteger(va_list input);
-int int_recursion(int i, int negative);
-int printChar(va_list input);
-int printString(va_list input);
-int printPercent(va_list input);
-int printBinary(va_list input);
-int binary_recursion(unsigned int i);
-int (*get_print_func(char c))(va_list);
+void _putchar(char c, char **index);
+void printInteger(va_list input, char **index);
+void int_recursion(int i, char **index, int negative);
+void printChar(va_list input, char **index);
+void printString(va_list input, char **index);
+void printPercent(va_list input, char **index);
+void printBinary(va_list input, char **index);
+void binary_recursion(unsigned int i, char **index);
+void (*get_print_func(char c))(va_list, char **);
 
 #endif /* _PRINTF_ */
