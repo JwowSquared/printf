@@ -4,7 +4,7 @@ void printHex_upper(va_list input, char **index)
 {
 	unsigned int out = va_arg(input, unsigned int);
 
-	if (out == 0);
+	if (out == 0)
 	{
 		_putchar(out + 48, index);
 		return;
