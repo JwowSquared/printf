@@ -13,7 +13,7 @@ int printBinary(va_list input)
 
 int binary_recursion(unsigned int i)
 {
-	int remainder, total;
+	unsigned int remainder, total;
 
 	if (i == 0)
 		return (0);

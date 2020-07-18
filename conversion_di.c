@@ -3,22 +3,27 @@
 int printInteger(va_list input)
 {
 	int out = va_arg(input, int);
+	unsigned int output;
+
 	if (out < 0)
 	{
 		_putchar('-');
-		return (int_recursion(out, -1));
+		out *= -1;
+		output = out;
+		return (int_recursion(output));
 	}
-	return (int_recursion(out, 1));
+	output = out;
+	return (int_recursion(output));
 }
 
-int int_recursion(int i, int negative)
+int int_recursion(unsigned int i)
 {
-	int digit, total;
+	unsigned int digit, total;
 
 	if (i == 0)
 		return (0);
-	digit = i % 10 * negative;
-	total = 1 + int_recursion(i / 10, negative);
+	digit = i % 10;
+	total = 1 + int_recursion(i / 10);
 	_putchar(digit + 48);
 	return (total);
 }
