@@ -1,5 +1,4 @@
-#include "printf.h"
-#include <stdarg.h>
+#include "holberton.h"
 
 int printChar(va_list input)
 {
@@ -21,4 +20,11 @@ int printString(va_list input)
 		count++;
 	}
 	return (count);
+}
+
+int printPercent(va_list input)
+{
+	(void)input;
+	_putchar('%');
+	return (1);
 }
