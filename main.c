@@ -14,7 +14,6 @@ int main(void)
     unsigned int ui;
     void *addr;
     char str[10] = "Holberton";
-    str[5] = 25;
 
     len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
@@ -40,7 +39,9 @@ int main(void)
     len2 = printf("Percent:[%%]\n");
     _printf("Len:[%d]\n", len);
     printf("Len:[%d]\n", len2);
-    _printf("Unknown:[%r]\n");
-    _printf("Custom: [%S]\n", str);
+    _printf("Reverse:[%r]\n", str);
+    _printf("Rot13:[%R]\n", str);
+    str[5] = 25;
+    _printf("Custom:[%S]\n", str);
     return (0);
 }
