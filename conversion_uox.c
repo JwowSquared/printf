@@ -33,7 +33,7 @@ void octal_recursion(unsigned int i, char **index)
 
 void printHex(va_list input, char **index)
 {
-	unsigned int out = va_arg(input, unsigned int);
+	unsigned long int out = va_arg(input, unsigned long int);
 
 	if (out == 0)
 	{
@@ -43,9 +43,9 @@ void printHex(va_list input, char **index)
 	hex_recursion(out, index);
 }
 
-void hex_recursion(unsigned int i, char **index)
+void hex_recursion(unsigned long int i, char **index)
 {
-	unsigned int remainder;
+	unsigned long int remainder;
 
 	if (i == 0)
 		return;
