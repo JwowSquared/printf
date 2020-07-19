@@ -13,6 +13,8 @@ void (*get_print_func(char c))(va_list, char **)
 		{"o", &printOctal},
 		{"x", &printHex},
 		{"X", &printHex_upper},
+		{"R", &printRot},
+		{"r", &printReverse},
 		{"S", &printString_custom},
 		{NULL, NULL}
 	};

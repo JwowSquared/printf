@@ -16,6 +16,8 @@ void _putchar(char c, char **index);
 void printInteger(va_list input, char **index);
 void printUnsigned(va_list input, char **index);
 void int_recursion(unsigned int i, char **index);
+void printRot(va_list input, char **index);
+void printReverse(va_list input, char **index);
 void printChar(va_list input, char **index);
 void printString(va_list input, char **index);
 void printPercent(va_list input, char **index);
