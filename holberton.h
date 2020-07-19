@@ -27,9 +27,10 @@ void printHex_upper(va_list input, char **index);
 void printOctal(va_list input, char **index);
 void binary_recursion(unsigned int i, char **index);
 void octal_recursion(unsigned int i, char **index);
-void hex_recursion(unsigned int i, char **index);
+void hex_recursion(unsigned long int i, char **index);
 void hex_recursion_upper(unsigned int i, char **index);
 void printString_custom(va_list input, char **index);
+void printAddress(va_list input, char **index);
 void (*get_print_func(char c))(va_list, char **);
 
 #endif /* _PRINTF_ */
