@@ -16,6 +16,7 @@ void (*get_print_func(char c))(va_list, char **)
 		{"R", &printRot},
 		{"r", &printReverse},
 		{"S", &printString_custom},
+		{"p", &printAddress},
 		{NULL, NULL}
 	};
 	int i = 0;
