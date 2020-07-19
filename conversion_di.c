@@ -4,6 +4,7 @@ void printInteger(va_list input, char **index)
 {
 	unsigned int out;
 	int in = va_arg(input, int);
+
 	if (in < 0)
 	{
 		_putchar('-', index);
