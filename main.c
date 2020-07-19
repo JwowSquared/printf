@@ -13,6 +13,8 @@ int main(void)
     int len2;
     unsigned int ui;
     void *addr;
+    char str[10] = "Holberton";
+    str[5] = 25;
 
     len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
@@ -39,5 +41,6 @@ int main(void)
     _printf("Len:[%d]\n", len);
     printf("Len:[%d]\n", len2);
     _printf("Unknown:[%r]\n");
+    _printf("Custom: [%S]\n", str);
     return (0);
 }
