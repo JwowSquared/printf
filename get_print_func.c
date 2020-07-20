@@ -1,5 +1,10 @@
 #include "holberton.h"
-
+/**
+ * get_print_func - associates function with matching specifier
+ * @c: format specifier
+ *
+ * Return: the function that matches specifier
+ */
 void (*get_print_func(char c))(va_list, char **)
 {
 	spec specs[] = {

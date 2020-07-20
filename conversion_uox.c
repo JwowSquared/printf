@@ -1,5 +1,11 @@
 #include "holberton.h"
 
+/**
+ * printUnsigned - Prints an unsigned int
+ * @input: arugments
+ * @index: buffer
+ * Return: no return
+ */
 void printUnsigned(va_list input, char **index)
 {
 	unsigned int out = va_arg(input, unsigned int);
@@ -7,6 +13,12 @@ void printUnsigned(va_list input, char **index)
 	int_recursion(out, index);
 }
 
+/**
+ * printOctal - prints a number in octal
+ * @input: arugments
+ * @index: buffer
+ * Return: no return
+ */
 void printOctal(va_list input, char **index)
 {
 	unsigned int out = va_arg(input, unsigned int);
@@ -19,6 +31,12 @@ void printOctal(va_list input, char **index)
 	octal_recursion(out, index);
 }
 
+/**
+ * octal_recursion - converts and prints a number passed to it in octal
+ * @i: number passed
+ * @index: buffer
+ * Return: no return
+ */
 void octal_recursion(unsigned int i, char **index)
 {
 	unsigned int remainder;
@@ -31,6 +49,12 @@ void octal_recursion(unsigned int i, char **index)
 	_putchar(remainder + 48, index);
 }
 
+/**
+ * printHex - prints a number in hex
+ * @input: arugments
+ * @index: buffer
+ * Return: no return
+ */
 void printHex(va_list input, char **index)
 {
 	unsigned long int out = va_arg(input, unsigned long int);
@@ -43,6 +67,12 @@ void printHex(va_list input, char **index)
 	hex_recursion(out, index);
 }
 
+/**
+ * hex_recursion - converts and prints a number passed into hex
+ * @i: number passed
+ * @index: buffer
+ * Return: no return
+ */
 void hex_recursion(unsigned long int i, char **index)
 {
 	unsigned long int remainder;
