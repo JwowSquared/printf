@@ -1,5 +1,11 @@
 #include "holberton.h"
 
+/**
+ * printString_custom - Prints a string showing special characters as hex
+ * @input: arugments
+ * @index: buffer
+ * Return: no return
+ */
 void printString_custom(va_list input, char **index)
 {
 	int i = 0;
