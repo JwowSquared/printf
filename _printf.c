@@ -1,6 +1,12 @@
 #include "holberton.h"
 #include <stdio.h>
 #include <unistd.h>
+
+/**
+ * _printf - Takes arguments and prints them to console
+ * @format: String to print with specifiers
+ * Return: character length
+ */
 int _printf(const char *format, ...)
 {
 	int i = 0, total = 0;
