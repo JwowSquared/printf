@@ -11,6 +11,19 @@
  * @f: function
  * Description: Stores specifiers and their function
  */
+
+typedef struct modifiers
+{
+	int zero;
+	int plus;
+	int pound;
+	int minus;
+	int width;
+	int precision;
+	char length;
+	char key;
+} mods;
+
 typedef struct specifier
 {
 	char *key;
@@ -18,6 +31,10 @@ typedef struct specifier
 } spec;
 
 int _printf(const char *str, ...);
+mods *get_mods(char *format, int *i);
+mods *mods_init(void);
+int get_int(char *format, int *i);
+int _atoi(char *buffer);
 void _putchar(char c, char **index);
 void printInteger(va_list input, char **index);
 void printUnsigned(va_list input, char **index);
