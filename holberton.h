@@ -5,6 +5,12 @@
 #include <stddef.h>
 #include <stdlib.h>
 
+/**
+ * struct specifier - binds keys and functions
+ * @key: format specifier
+ * @f: function
+ * Description: Stores specifiers and their function
+ */
 typedef struct specifier
 {
 	char *key;

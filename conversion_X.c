@@ -1,5 +1,11 @@
 #include "holberton.h"
 
+/**
+ * printHex_upper - prints a number in hex in cap letters
+ * @input: arugments
+ * @index: buffer
+ * Return: no return
+ */
 void printHex_upper(va_list input, char **index)
 {
 	unsigned int out = va_arg(input, unsigned int);
@@ -12,6 +18,12 @@ void printHex_upper(va_list input, char **index)
 	hex_recursion_upper(out, index);
 }
 
+/**
+ * hex_recursion_upper - converts and prints a number into hex
+ * @i: number passed
+ * @index: buffer
+ * Return: no return
+ */
 void hex_recursion_upper(unsigned int i, char **index)
 {
 	unsigned int remainder;
