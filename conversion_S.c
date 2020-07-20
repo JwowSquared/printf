@@ -6,10 +6,12 @@
  * @index: buffer
  * Return: no return
  */
-void printString_custom(va_list input, char **index)
+void printString_custom(va_list input, mods *m, char **index)
 {
 	int i = 0;
 	char *str;
+
+	(void)m;
 
 	str = va_arg(input, char *);
 	if (str == NULL)

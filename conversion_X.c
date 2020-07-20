@@ -6,9 +6,15 @@
  * @index: buffer
  * Return: no return
  */
-void printHex_upper(va_list input, char **index)
+void printHex_upper(va_list input, mods *m, char **index)
 {
 	unsigned int out = va_arg(input, unsigned int);
+
+	if (m->pound)
+	{
+		_putchar('0', index);
+		_putchar('X', index);
+	}
 
 	if (out == 0)
 	{

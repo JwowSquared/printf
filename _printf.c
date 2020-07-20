@@ -10,11 +10,15 @@
 int _printf(const char *format, ...)
 {
 	int i = 0, total = 0;
-	void (*f)(va_list, char **);
+	int *j = &i;
+	void (*f)(va_list, mods *, char **);
 	va_list input;
 	char buffer[1024];
 	char *p = buffer;
 	char **index = &p;
+	mods *m = malloc(sizeof(mods));
+	if (m == NULL)
+		return (-1);
 
 	for (i = 0; i < 1023; i++)
 		buffer[i] = '!';
@@ -28,11 +32,13 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			f = get_print_func(format[i + 1]);
+			i++;
+			get_mods(format, m, j);
+			f = get_print_func(m->key);
 			if (f != NULL)
 			{
-				i = i + 2;
-				f(input, index);
+				handle_mods(f, m, input, index);
+				i++;
 				continue;
 			}
 		}

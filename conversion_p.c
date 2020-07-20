@@ -6,9 +6,11 @@
  * @index: buffer
  * Return: no return
  */
-void printAddress(va_list input, char **index)
+void printAddress(va_list input, mods *m, char **index)
 {
 	unsigned long int addr = va_arg(input, unsigned long int);
+
+	(void)m;
 
 	_putchar('0', index);
 	_putchar('x', index);
