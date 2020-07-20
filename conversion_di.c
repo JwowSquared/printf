@@ -1,5 +1,11 @@
 #include "holberton.h"
 
+/**
+ * printInteger - prints an integer
+ * @input: arugments
+ * @index: buffer
+ * Return: no return
+ */
 void printInteger(va_list input, char **index)
 {
 	unsigned int out;
@@ -16,6 +22,12 @@ void printInteger(va_list input, char **index)
 	int_recursion(out, index);
 }
 
+/**
+ * int_recursion - prints number passed to it
+ * @i: number passed
+ * @index: buffer
+ * Return: no return
+ */
 void int_recursion(unsigned int i, char **index)
 {
 	unsigned int digit;

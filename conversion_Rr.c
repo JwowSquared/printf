@@ -1,5 +1,11 @@
 #include "holberton.h"
 
+/**
+ * printRot - Prints rot conversion of number
+ * @input: arugments
+ * @index: buffer
+ * Return: no return
+ */
 void printRot(va_list input, char **index)
 {
 	int count = 0, i = 0, k = 0;
@@ -41,6 +47,12 @@ void printRot(va_list input, char **index)
 	free(str);
 }
 
+/**
+ * printReverse - prints a string in reverse
+ * @input: arugments
+ * @index: buffer
+ * Return: no return
+ */
 void printReverse(va_list input, char **index)
 {
 	int count = 0, i = 0, length = 0;
