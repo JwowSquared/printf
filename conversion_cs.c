@@ -6,8 +6,9 @@
  * @index: buffer
  * Return: no return
  */
-void printChar(va_list input, char **index)
+void printChar(va_list input, mods *m, char **index)
 {
+	(void)m;
 	_putchar(va_arg(input, int), index);
 }
 
@@ -17,19 +18,23 @@ void printChar(va_list input, char **index)
  * @index: buffer
  * Return: no return
  */
-void printString(va_list input, char **index)
+void printString(va_list input, mods *m, char **index)
 {
 	int count = 0;
 	char *str;
 
+	if (m->precision == -1)
+		m->precision = 1024;
+
 	str = va_arg(input, char *);
 	if (str == NULL)
 		return;
-	while (str[count])
+	while (str[count] && count < m->precision)
 	{
 		_putchar(str[count], index);
 		count++;
 	}
+	m->precision = -1;
 }
 
 /**
@@ -38,8 +43,9 @@ void printString(va_list input, char **index)
  * @index: buffer
  * Return: no return
  */
-void printPercent(va_list input, char **index)
+void printPercent(va_list input, mods *m, char **index)
 {
 	(void)input;
+	(void)m;
 	_putchar('%', index);
 }
