@@ -5,9 +5,11 @@
  * @index: character buffer
  * Return: no return
  */
-void printBinary(va_list input, char **index)
+void printBinary(va_list input, mods *m, char **index)
 {
 	unsigned int out = va_arg(input, unsigned int);
+
+	(void)m;
 
 	if (out == 0)
 	{

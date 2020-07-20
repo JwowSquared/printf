@@ -1,12 +1,13 @@
 #include "holberton.h"
 #include <stdio.h>
 
-mods *get_mods(char *format, int *i)
+void get_mods(const char *format, mods *out, int *i)
 {
-	mods *out = mods_init();
 	char *keys = "cs%dibuoxXSprR";
 	int match = 1, j, k = (*i);
 	int *p = &k;
+
+	mods_init(out);
 
 	while (match)
 	{
@@ -39,14 +40,20 @@ mods *get_mods(char *format, int *i)
 
 	out->width = get_int(format, p);
 	if (out->width == -1)
-		return (NULL);
+	{
+		mods_init(out);
+		return;
+	}
 
 	if (format[k] == '.')
 	{
 		k++;
 		out->precision = get_int(format, p);
 		if (out->precision == -1)
-			return (NULL);
+		{
+			mods_init(out);
+			return;
+		}
 	}
 
 	if (format[k] == 'l' || format[k] == 'h')
@@ -64,36 +71,24 @@ mods *get_mods(char *format, int *i)
 	}
 
 	if (match != 1)
-	{
-		/* abort mission */
-		return (NULL);
-	}
+		mods_init(out);
 	else
-	{
 		(*i) = k;
-		return (out);
-	}
 }
 
-mods *mods_init(void)
+void mods_init(mods *out)
 {
-	mods *out = malloc(sizeof(mods));
-	if (out == NULL)
-		return (NULL);
-
 	out->zero = 0;
 	out->plus = 0;
 	out->pound = 0;
 	out->minus = 0;
 	out->width = 0;
-	out->precision = 0;
+	out->precision = -1;
 	out->length = '\0';
 	out->key = '\0';
-
-	return (out);
 }
 
-int get_int(char *format, int *i)
+int get_int(const char *format, int *i)
 {
 	char buffer[5];
 	int b = 0;
