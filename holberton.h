@@ -41,11 +41,12 @@ typedef struct specifier
 } spec;
 
 int _printf(const char *str, ...);
-void handle_mods(void (*f)(va_list, mods *, char **), mods *m, va_list input, char **index);
+void h_m(void (*f)(va_list, mods *, char **), mods *m, va_list inp, char **ind);
 void get_mods(const char *format, mods *out, int *i);
 void mods_init(mods *out);
 int get_int(const char *format, int *i);
 int _atoi(char *buffer);
+int handle_flags(const char *format, mods *out, int k);
 void _putchar(char c, char **index);
 void printInteger(va_list input, mods *m, char **index);
 void printUnsigned(va_list input, mods *m, char **index);
