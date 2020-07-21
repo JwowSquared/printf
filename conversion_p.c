@@ -4,6 +4,7 @@
  * printAddress - prints an address
  * @input: arugments
  * @index: buffer
+ * @m: modifiers
  * Return: no return
  */
 void printAddress(va_list input, mods *m, char **index)

@@ -3,6 +3,7 @@
  * printBinary - Prints a number in binary
  * @input: arguments
  * @index: character buffer
+ * @m: modifiers
  * Return: no return
  */
 void printBinary(va_list input, mods *m, char **index)

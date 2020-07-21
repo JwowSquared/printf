@@ -4,6 +4,7 @@
  * printRot - Prints rot conversion of number
  * @input: arugments
  * @index: buffer
+ * @m: modifiers not used
  * Return: no return
  */
 void printRot(va_list input, mods *m, char **index)
@@ -14,14 +15,12 @@ void printRot(va_list input, mods *m, char **index)
 	char s2[] = "nNoOpPqQrRsStTuUvVwWxXyYzZaAbBcCdDeEfFgGhHiIjJkKlLmM";
 
 	(void)m;
-
 	s = va_arg(input, char *);
 	if (s == NULL)
 		return;
 
 	while (s[i])
 		i++;
-
 	str = malloc(sizeof(char) * (i + 1));
 	if (str == NULL)
 		return;
@@ -53,6 +52,7 @@ void printRot(va_list input, mods *m, char **index)
  * printReverse - prints a string in reverse
  * @input: arugments
  * @index: buffer
+ * @m: modifiers not used
  * Return: no return
  */
 void printReverse(va_list input, mods *m, char **index)
@@ -62,14 +62,12 @@ void printReverse(va_list input, mods *m, char **index)
 	char temp;
 
 	(void)m;
-
 	in = va_arg(input, char *);
 	if (in == NULL)
 		return;
 
 	while (in[length])
 		length++;
-
 	str = malloc(sizeof(char) * (length + 1));
 	if (str == NULL)
 		return;
