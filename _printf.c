@@ -17,17 +17,15 @@ int _printf(const char *format, ...)
 	char *p = buffer;
 	char **index = &p;
 	mods *m = malloc(sizeof(mods));
+
 	if (m == NULL)
 		return (-1);
 
 	for (i = 0; i < 1023; i++)
 		buffer[i] = '!';
 	buffer[1023] = '\0';
-
 	va_start(input, format);
-
 	i = 0;
-
 	while (format[i])
 	{
 		if (format[i] == '%')
@@ -44,14 +42,10 @@ int _printf(const char *format, ...)
 		}
 		_putchar(format[i++], index);
 	}
-
 	va_end(input);
-
 	**index = '\0';
-
 	while (buffer[total])
 		total++;
-
 	write(1, &buffer, total);
 
 	return (total);
