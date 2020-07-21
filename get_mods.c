@@ -1,6 +1,13 @@
 #include "holberton.h"
 #include <stdio.h>
 
+/**
+ * get_mods - finds all of the modifiers of argument call
+ * @format: string buffer
+ * @out: output modifiers
+ * @i: buffer index
+ * Return: no return
+ */
 void get_mods(const char *format, mods *out, int *i)
 {
 	char *keys = "cs%dibuoxXSprR";
@@ -76,6 +83,11 @@ void get_mods(const char *format, mods *out, int *i)
 		(*i) = k;
 }
 
+/**
+ * mods_init - initializes and resets a mod type
+ * @out: modifiers
+ * Return: no return
+ */
 void mods_init(mods *out)
 {
 	out->zero = 0;
@@ -88,11 +100,17 @@ void mods_init(mods *out)
 	out->key = '\0';
 }
 
+/**
+ * get_int - creates number from string in buffer
+ * @format: buffer
+ * @i: buffer index
+ * Return: new number
+ */
 int get_int(const char *format, int *i)
 {
 	char buffer[5];
 	int b = 0;
-	
+
 	while (format[*i] >= '0' && format[*i] <= '9')
 	{
 		if (b > 3)
@@ -105,6 +123,11 @@ int get_int(const char *format, int *i)
 	return (_atoi(buffer));
 }
 
+/**
+ * _atoi - creates integer from string
+ * @buffer: character buffer
+ * Return: new number
+ */
 int _atoi(char *buffer)
 {
 	int i, total = 0;

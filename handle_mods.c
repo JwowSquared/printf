@@ -1,5 +1,14 @@
 #include "holberton.h"
 #include <stdio.h>
+
+/**
+ * handle_mods - applies modifiers to our output
+ * @f: function to perform with specific argument
+ * @m: modifiers
+ * @input: arguments
+ * @index: buffer
+ * Return: no return
+ */
 void handle_mods(void (*f)(va_list, mods *, char **), mods *m, va_list input, char **index)
 {
 	char buffer[1024];
