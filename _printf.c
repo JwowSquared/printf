@@ -43,6 +43,7 @@ int _printf(const char *format, ...)
 		_putchar(format[i++], index);
 	}
 	va_end(input);
+	free(m);
 	**index = '\0';
 	while (buffer[total])
 		total++;
