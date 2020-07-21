@@ -15,36 +15,7 @@ void get_mods(const char *format, mods *out, int *i)
 	int *p = &k;
 
 	mods_init(out);
-
-	while (match)
-	{
-		switch (format[k])
-		{
-			case ' ':
-				out->zero = 0;
-				k++;
-				break;
-			case '0':
-				out->zero = 1;
-				k++;
-				break;
-			case '+':
-				out->plus = 1;
-				k++;
-				break;
-			case '-':
-				out->minus = 1;
-				k++;
-				break;
-			case '#':
-				out->pound = 1;
-				k++;
-				break;
-			default:
-				match = 0;
-		}
-	}
-
+	k = handle_flags(format, out, k);
 	out->width = get_int(format, p);
 	if (out->width == -1)
 	{
@@ -68,14 +39,12 @@ void get_mods(const char *format, mods *out, int *i)
 
 	match = 0;
 	for (j = 0; keys[j]; j++)
-	{
 		if (keys[j] == format[k])
 		{
 			out->key = format[k];
 			match = 1;
 			break;
 		}
-	}
 
 	if (match != 1)
 		mods_init(out);
@@ -139,4 +108,48 @@ int _atoi(char *buffer)
 	}
 
 	return (total);
+}
+
+/**
+* handle_flags - parses format to determine what flags to set
+* @format: input string
+* @out: mods pointer
+* @k: current index on format to look at
+*
+* Return: k to continue iterating
+*/
+int handle_flags(const char *format, mods *out, int k)
+{
+	int match = 1;
+
+	while (match)
+	{
+		switch (format[k])
+		{
+			case ' ':
+				out->zero = 0;
+				k++;
+				break;
+			case '0':
+				out->zero = 1;
+				k++;
+				break;
+			case '+':
+				out->plus = 1;
+				k++;
+				break;
+			case '-':
+				out->minus = 1;
+				k++;
+				break;
+			case '#':
+				out->pound = 1;
+				k++;
+				break;
+			default:
+				match = 0;
+		}
+	}
+
+	return (k);
 }

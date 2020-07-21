@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
 			f = get_print_func(m->key);
 			if (f != NULL)
 			{
-				handle_mods(f, m, input, index);
+				h_m(f, m, input, index);
 				i++;
 				continue;
 			}
