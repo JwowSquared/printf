@@ -6,9 +6,11 @@
  * @index: buffer
  * Return: no return
  */
-void printUnsigned(va_list input, char **index)
+void printUnsigned(va_list input, mods *m, char **index)
 {
 	unsigned int out = va_arg(input, unsigned int);
+
+	(void)m;
 
 	int_recursion(out, index);
 }
@@ -19,9 +21,12 @@ void printUnsigned(va_list input, char **index)
  * @index: buffer
  * Return: no return
  */
-void printOctal(va_list input, char **index)
+void printOctal(va_list input, mods *m, char **index)
 {
 	unsigned int out = va_arg(input, unsigned int);
+
+	if (m->pound)
+		_putchar('0', index);
 
 	if (out == 0)
 	{
@@ -55,9 +60,15 @@ void octal_recursion(unsigned int i, char **index)
  * @index: buffer
  * Return: no return
  */
-void printHex(va_list input, char **index)
+void printHex(va_list input, mods *m, char **index)
 {
 	unsigned long int out = va_arg(input, unsigned long int);
+
+	if (m->pound)
+	{
+		_putchar('0', index);
+		_putchar('x', index);
+	}
 
 	if (out == 0)
 	{

@@ -6,12 +6,14 @@
  * @index: buffer
  * Return: no return
  */
-void printRot(va_list input, char **index)
+void printRot(va_list input, mods *m, char **index)
 {
 	int count = 0, i = 0, k = 0;
 	char *str, *s;
 	char s1[] = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ";
 	char s2[] = "nNoOpPqQrRsStTuUvVwWxXyYzZaAbBcCdDeEfFgGhHiIjJkKlLmM";
+
+	(void)m;
 
 	s = va_arg(input, char *);
 	if (s == NULL)
@@ -53,11 +55,13 @@ void printRot(va_list input, char **index)
  * @index: buffer
  * Return: no return
  */
-void printReverse(va_list input, char **index)
+void printReverse(va_list input, mods *m, char **index)
 {
 	int count = 0, i = 0, length = 0;
 	char *s, *e, *str, *in;
 	char temp;
+
+	(void)m;
 
 	in = va_arg(input, char *);
 	if (in == NULL)
