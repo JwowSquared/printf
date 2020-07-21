@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 /**
  * _putchar - writes the character c to stdout
  * @c: The character to print
@@ -7,8 +8,19 @@
  */
 void _putchar(char c, char **index)
 {
+	int i;
+
 	if (**index)
 	{
+		**index = c;
+		(*index)++;
+	}
+	else {
+		(*index) -= 1023;
+		write(1, (*index), 1);
+		for (i = 0; i < 1023; i++)
+			(*index)[i] = '!';
+
 		**index = c;
 		(*index)++;
 	}
