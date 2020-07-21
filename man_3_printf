@@ -1,4 +1,4 @@
-.TH man 3 "21 July 2020" "1.0" "_printf man page"
+.TH man 3 "21 July 2020" "2.0" "_printf man page"
 .SH NAME
 _printf - Format and print stuff to the console
 .SH SYNOPSIS
