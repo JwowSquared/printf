@@ -9,8 +9,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, total = 0;
-	int *j = &i;
+	int i = 0, total = 0, *j = &i;
 	void (*f)(va_list, mods *, char **);
 	va_list input;
 	char buffer[1024];
