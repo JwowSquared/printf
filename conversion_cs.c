@@ -30,7 +30,7 @@ void printString(va_list input, mods *m, char **index)
 
 	str = va_arg(input, char *);
 	if (str == NULL)
-		return;
+		str = "(null)";
 	while (str[count] && count < m->precision)
 	{
 		_putchar(str[count], index);
