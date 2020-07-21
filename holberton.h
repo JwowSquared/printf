@@ -6,12 +6,17 @@
 #include <stdlib.h>
 
 /**
- * struct specifier - binds keys and functions
+ * struct modifiers - mods for formatting
+ * @zero: 0 flag
+ * @plus: + flag
+ * @pound: # flag
+ * @minus: - flag
+ * @width: width formatting
+ * @precision: precision formatting
+ * @length: length formatting
  * @key: format specifier
- * @f: function
- * Description: Stores specifiers and their function
+ * Description: holds info on specific modifiers
  */
-
 typedef struct modifiers
 {
 	int zero;
@@ -24,6 +29,11 @@ typedef struct modifiers
 	char key;
 } mods;
 
+/**
+ * struct specifier - matches key with function
+ * @key: format
+ * @f: function
+ */
 typedef struct specifier
 {
 	char *key;
@@ -37,8 +47,8 @@ void mods_init(mods *out);
 int get_int(const char *format, int *i);
 int _atoi(char *buffer);
 void _putchar(char c, char **index);
-void printInteger(va_list input, mods* m, char **index);
-void printUnsigned(va_list input, mods * m, char **index);
+void printInteger(va_list input, mods *m, char **index);
+void printUnsigned(va_list input, mods *m, char **index);
 void printRot(va_list input, mods *m, char **index);
 void printReverse(va_list input, mods *m, char **index);
 void printChar(va_list input, mods *m, char **index);

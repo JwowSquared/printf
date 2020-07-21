@@ -10,56 +10,38 @@
 void printInteger(va_list input, mods *m, char **index)
 {
 	unsigned long int out;
-	short int s;
-	int i;
-	long int l;
+	short int s = 0;
+	int i = 0;
+	long int l = 0;
 
 	if (m->length == 'l')
 	{
 		l = va_arg(input, long int);
 		if (l < 0)
-		{
-			_putchar('-', index);
 			out = l * -1;
-		}
 		else
-		{
-			if (l > 0 && m->plus)
-				_putchar('+', index);
 			out = l;
-		}
 	}
 	else if (m->length == 'h')
 	{
 		s = va_arg(input, int);
 		if (s < 0)
-		{
-			_putchar('-', index);
 			out = s * -1;
-		}
 		else
-		{
-			if (s > 0 && m->plus)
-				_putchar('+', index);
 			out = s;
-		}
 	}
-	else 
+	else
 	{
 		i = va_arg(input, int);
 		if (i < 0)
-		{
-			_putchar('-', index);
 			out = i * -1;
-		}
 		else
-		{
-			if (i > 0 && m->plus)
-				_putchar('+', index);
 			out = i;
-		}
 	}
-
+	if (l < 0 || s < 0 || i < 0)
+		_putchar('-', index);
+	else if ((l > 0 || s > 0 || i > 0) && m->plus)
+		_putchar('+', index);
 	if (out == 0 && m->precision == 0)
 		return;
 	int_recursion(out, index);

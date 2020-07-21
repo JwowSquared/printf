@@ -3,6 +3,7 @@
 /**
  * printHex_upper - prints a number in hex in cap letters
  * @input: arugments
+ * @m: modifiers
  * @index: buffer
  * Return: no return
  */
@@ -10,7 +11,7 @@ void printHex_upper(va_list input, mods *m, char **index)
 {
 	unsigned int out = va_arg(input, unsigned int);
 
-	if (m->pound)
+	if (m->pound && out != 0)
 	{
 		_putchar('0', index);
 		_putchar('X', index);
