@@ -3,6 +3,7 @@
 /**
  * printHex_upper - prints a number in hex in cap letters
  * @input: arugments
+ * @m: modifiers
  * @index: buffer
  * Return: no return
  */

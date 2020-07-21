@@ -3,6 +3,7 @@
 /**
  * printString_custom - Prints a string showing special characters as hex
  * @input: arugments
+ * @m: modifiers
  * @index: buffer
  * Return: no return
  */
