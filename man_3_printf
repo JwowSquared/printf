@@ -1,0 +1,45 @@
+.TH man 3 "21 July 2020" "1.0" "_printf man page"
+.SH NAME
+_printf - Format and print stuff to the console
+.SH SYNOPSIS
+int _printf(const char *format, ...);
+.SH DESCRIPTION
+_printf is an alternative to regular printf. _printf formats text and prints it to the standard console. Upon successful return, it returns the number of characters printed excluding the null byte.
+.SH OPTIONS
+.SS The following flags can be applied to the format:
+.RS
+.nf
+#: Prefixes "0x" to non-zero values of x or X specifiers. Prefixes "0" to non-zero values of o specifier.
+0: Adds leading zeros for d or i specifiers. Only adds them if the width is large enough.
+-: Left-aligns the printed characters.
+(space): Prefixes the characters with a space.
++: Prints a plus sign if the number printed is positive.
+.RE
+.SS _printf accepts the following specifiers:
+.RS
+.nf
+d/i: Accepts integer values
+c: accepts characters
+s: accepts character pointers
+u: accepts unsigned integers
+b: accepts unsigned integers and prints their binary conversion
+o: accepts unsigned integers and prints their octal conversions
+x/X: accepts unsigned integers and prints their hex conversions
+S: accepts a string and prints non-printable characters as '\x'
+p: accepts addresses
+r: accepts a string and prints it in reverse
+R: accepts a string and prints the Rot13 conversion
+.RE
+.SS _printf accepts the following length modifiers:
+.RS
+.nf
+l: accepts a long integer for d/i
+h: accepts a short integer for d/i
+.RE
+.SS Width can be specified by placing an integer value before the specifier. Precision can be specified by placing an integer value after a '.' character.
+.SH SEE ALSO
+.I printf
+.SH BUGS
+No known bugs.
+.SH AUTHOR
+Jacob Wagner and Alex Smith
