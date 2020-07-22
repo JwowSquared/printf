@@ -2,7 +2,7 @@
 
 /**
  * printRot - Prints rot conversion of number
- * @input: arugments
+ * @input: arugment to handle
  * @index: buffer
  * @m: modifiers not used
  * Return: no return
@@ -50,7 +50,7 @@ void printRot(va_list input, mods *m, char **index)
 
 /**
  * printReverse - prints a string in reverse
- * @input: arugments
+ * @input: arugment to handle
  * @index: buffer
  * @m: modifiers not used
  * Return: no return
