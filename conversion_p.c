@@ -2,7 +2,7 @@
 
 /**
  * printAddress - prints an address
- * @input: arugments
+ * @input: arugment to handle
  * @index: buffer
  * @m: modifiers
  * Return: no return
