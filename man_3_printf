@@ -40,6 +40,6 @@ h: accepts a short integer for d/i
 .SH SEE ALSO
 .I printf
 .SH BUGS
-No known bugs.
+The space flag has some small issues :(
 .SH AUTHOR
 Jacob Wagner and Alex Smith
