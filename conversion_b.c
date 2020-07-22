@@ -1,7 +1,7 @@
 #include "holberton.h"
 /**
  * printBinary - Prints a number in binary
- * @input: arguments
+ * @input: argument to handle
  * @index: character buffer
  * @m: modifiers
  * Return: no return
