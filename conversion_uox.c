@@ -2,7 +2,7 @@
 
 /**
  * printUnsigned - Prints an unsigned int
- * @input: arugments
+ * @input: arugment to handle
  * @index: buffer
  * @m: modifiers
  * Return: no return
@@ -18,7 +18,7 @@ void printUnsigned(va_list input, mods *m, char **index)
 
 /**
  * printOctal - prints a number in octal
- * @input: arugments
+ * @input: arugment to handle
  * @m: modifiers
  * @index: buffer
  * Return: no return
