@@ -2,7 +2,7 @@
 
 /**
  * printHex_upper - prints a number in hex in cap letters
- * @input: arugments
+ * @input: arugment to handle
  * @m: modifiers
  * @index: buffer
  * Return: no return
