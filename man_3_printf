@@ -19,7 +19,7 @@ _printf is an alternative to regular printf. _printf formats text and prints it 
 .RS
 .nf
 d/i: Accepts integer values
-c: accepts characters
+c: Accepts characters
 s: accepts character pointers
 u: accepts unsigned integers
 b: accepts unsigned integers and prints their binary conversion
