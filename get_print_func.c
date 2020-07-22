@@ -2,7 +2,7 @@
 
 /**
  * get_print_func - associates function with matching specifier
- * @c: format specifier
+ * @c: format specifier to receive
  *
  * Return: the function that matches specifier
  */

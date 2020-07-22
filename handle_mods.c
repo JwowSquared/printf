@@ -5,7 +5,7 @@
  * h_m - applies modifiers to our output
  * @f: function to perform with specific argument
  * @m: modifiers
- * @inp: arguments
+ * @inp: argument to handle
  * @ind: buffer
  * Return: no return
  */

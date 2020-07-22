@@ -14,7 +14,7 @@
  * @width: width formatting
  * @precision: precision formatting
  * @length: length formatting
- * @key: format specifier
+ * @key: format specifier to print
  * Description: holds info on specific modifiers
  */
 typedef struct modifiers

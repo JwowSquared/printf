@@ -3,7 +3,7 @@
 
 /**
  * get_mods - finds all of the modifiers of argument call
- * @format: string buffer
+ * @format: temp string buffer
  * @out: output modifiers
  * @i: buffer index
  * Return: no return

@@ -2,7 +2,7 @@
 
 /**
  * printChar - prints a character
- * @input: arugments
+ * @input: arugment to handle
  * @index: buffer
  * @m: modifiers
  * Return: no return
@@ -15,7 +15,7 @@ void printChar(va_list input, mods *m, char **index)
 
 /**
  * printString - prints a string
- * @input: arugments
+ * @input: arugment to handle
  * @index: buffer
  * @m: modifiers
  * Return: no return
@@ -41,7 +41,7 @@ void printString(va_list input, mods *m, char **index)
 
 /**
  * printPercent - Prints a percent sign
- * @input: arugments
+ * @input: arugment to handle
  * @index: buffer
  * @m: modifiers
  * Return: no return

@@ -4,7 +4,7 @@
 
 /**
  * _printf - Takes arguments and prints them to console
- * @format: String to print with specifiers
+ * @format: String to print with specifiers and mods
  * Return: character length
  */
 int _printf(const char *format, ...)
