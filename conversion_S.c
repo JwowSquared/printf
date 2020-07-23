@@ -7,25 +7,27 @@
  * @index: buffer
  * Return: no return
  */
-void printString_custom(va_list input, mods *m, char **index)
+int printString_custom(va_list input, mods *m, char **index)
 {
-	int i = 0;
+	int i = 0, total = 0;
 	char *str;
 
 	(void)m;
 
 	str = va_arg(input, char *);
 	if (str == NULL)
-		return;
+		return (0);
 	while (str[i])
 	{
 		if (str[i] < 32 || str[i] >= 127)
 		{
-			_putchar('\\', index);
-			_putchar('x', index);
-			hex_recursion(str[i++], index);
+			total += _putchar('\\', index);
+			total += _putchar('x', index);
+			total += hex_recursion(str[i++], index);
 		}
 		else
-			_putchar(str[i++], index);
+			total += _putchar(str[i++], index);
 	}
+
+	return (total);
 }
