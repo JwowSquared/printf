@@ -9,7 +9,6 @@
 int printBinary(va_list input, mods *m, char **index)
 {
 	unsigned int out = va_arg(input, unsigned int);
-	int total = 0;
 	(void)m;
 
 	if (out == 0)
@@ -29,7 +28,7 @@ int binary_recursion(unsigned int i, char **index)
 	int total = 0;
 
 	if (i == 0)
-		return;
+		return (0);
 
 	remainder = i % 2;
 	total += binary_recursion(i / 2, index);
