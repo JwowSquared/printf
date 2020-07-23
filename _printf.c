@@ -45,7 +45,7 @@ int _printf(const char *format, ...)
 	va_end(input);
 	free(m);
 	**index = '\0';
-	while (buffer[c])
+	while (buffer[c] || buffer + c != *index)
 		c++;
 	write(1, &buffer, c);
 	return (total + c);
