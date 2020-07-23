@@ -67,6 +67,7 @@ int octal_recursion(unsigned long int i, char **index);
 int hex_recursion(unsigned int i, char **index);
 int hex_recursion_upper(unsigned int i, char **index);
 int int_recursion(unsigned long int i, char **index);
+int address_recursion(unsigned long int i, char **index);
 int (*get_print_func(char c))(va_list, mods *, char **);
 
 #endif /* _PRINTF_ */
