@@ -14,6 +14,8 @@ int h_m(int (*f)(va_list, mods *, char **), mods *m, va_list inp, char **ind)
 	char buffer[1024], *p = buffer, **b = &p, flag = ' ';
 	int i, j = 0, length = 0, total = 0;
 
+	if (!(m->key == 'd' || m->key == 'i'))
+		return (f(inp, m, ind));
 	for (i = 0; i < 1023; i++)
 		buffer[i] = '!';
 	f(inp, m, b);
@@ -45,10 +47,8 @@ int h_m(int (*f)(va_list, mods *, char **), mods *m, va_list inp, char **ind)
 	}
 	while (j-- > 0)
 		total += _putchar('0', ind);
-
 	*p = '\0';
-	i = 0;
-	while (buffer[i])
-		total += _putchar(buffer[i++], ind);
+	while (buffer[j])
+		total += _putchar(buffer[j++], ind);
 	return (total);
 }
