@@ -10,7 +10,7 @@
 int printAddress(va_list input, mods *m, char **index)
 {
 	int total = 0;
-	unsigned long int addr = va_arg(input, unsigned long int), temp = addr;
+	unsigned long int addr = va_arg(input, unsigned long int);
 
 	(void)m;
 
@@ -25,12 +25,6 @@ int printAddress(va_list input, mods *m, char **index)
 
 	total += _putchar('0', index);
 	total += _putchar('x', index);
-
-	while (temp < 10000000)
-	{
-		total += _putchar('0', index);
-		temp *= 10;
-	}
 
 	return (total + address_recursion(addr, index));
 }
