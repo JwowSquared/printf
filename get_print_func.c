@@ -6,7 +6,7 @@
  *
  * Return: the function that matches specifier
  */
-void (*get_print_func(char c))(va_list, mods *, char **)
+int (*get_print_func(char c))(va_list, mods *, char **)
 {
 	spec specs[] = {
 		{"c", &printChar},
