@@ -23,7 +23,9 @@ int printString_custom(va_list input, mods *m, char **index)
 		{
 			total += _putchar('\\', index);
 			total += _putchar('x', index);
-			total += hex_recursion(str[i++], index);
+			if (str[i] < 16)
+				total += _putchar('0', index);
+			total += hex_recursion_upper(str[i++], index);
 		}
 		else
 			total += _putchar(str[i++], index);
