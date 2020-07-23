@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 	i = 0;
 	while (format[i])
 	{
-		if (format[i] == '%')
+		if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			i++;
 			get_mods(format, m, j);
@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 				continue;
 			}
 			else
-				return (-1);
+				i--;
 		}
 		total += _putchar(format[i++], index);
 	}
