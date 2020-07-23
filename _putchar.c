@@ -4,9 +4,9 @@
  * _putchar - writes the character c to stdout
  * @c: The character to print
  * @index: character buffer
- * Return: no return
+ * Return: 1023 if buffer is emptied, else 0
  */
-void _putchar(char c, char **index)
+int _putchar(char c, char **index)
 {
 	int i;
 
@@ -14,14 +14,14 @@ void _putchar(char c, char **index)
 	{
 		**index = c;
 		(*index)++;
+		return (0);
 	}
-	else {
-		(*index) -= 1023;
-		write(1, (*index), 1);
-		for (i = 0; i < 1023; i++)
-			(*index)[i] = '!';
+	(*index) -= 1023;
+	write(1, (*index), 1023);
+	for (i = 0; i < 1023; i++)
+		(*index)[i] = '!';
 
-		**index = c;
-		(*index)++;
-	}
+	**index = c;
+	(*index)++;
+	return (1023);
 }
