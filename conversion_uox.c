@@ -71,7 +71,7 @@ int octal_recursion(unsigned long int i, char **index)
 int printHex(va_list input, mods *m, char **index)
 {
 	int total = 0;
-	unsigned long int out = va_arg(input, unsigned long int);
+	unsigned int out = va_arg(input, unsigned int);
 
 	if (m->pound && out != 0)
 	{
@@ -91,10 +91,10 @@ int printHex(va_list input, mods *m, char **index)
  * @index: buffer
  * Return: no return
  */
-int hex_recursion(unsigned long int i, char **index)
+int hex_recursion(unsigned int i, char **index)
 {
 	int total = 0;
-	unsigned long int remainder;
+	unsigned int remainder;
 
 	if (i == 0)
 		return (0);
