@@ -13,6 +13,9 @@ int printUnsigned(va_list input, mods *m, char **index)
 
 	(void)m;
 
+	if (out == 0)
+		return (_putchar('0', index));
+
 	return (int_recursion(out, index));
 }
 
@@ -26,7 +29,7 @@ int printUnsigned(va_list input, mods *m, char **index)
 int printOctal(va_list input, mods *m, char **index)
 {
 	int total = 0;
-	unsigned int out = va_arg(input, unsigned int);
+	unsigned long int out = va_arg(input, unsigned int);
 
 	if (m->pound && out != 0)
 		total += _putchar('0', index);
@@ -45,7 +48,7 @@ int printOctal(va_list input, mods *m, char **index)
  * @index: buffer
  * Return: no return
  */
-int octal_recursion(unsigned int i, char **index)
+int octal_recursion(unsigned long int i, char **index)
 {
 	int total = 0;
 	unsigned int remainder;
