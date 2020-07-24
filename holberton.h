@@ -7,6 +7,7 @@
 #include <stdio.h>
 /**
  * struct modifiers - mods for formatting
+ * @basic: flag to determine if a key has any mods
  * @eos: flag for get_mods if the end of string is hit
  * @space: ' ' flag
  * @zero: 0 flag
@@ -21,6 +22,7 @@
  */
 typedef struct modifiers
 {
+	int basic;
 	int eos;
 	int space;
 	int zero;

@@ -1,3 +1,4 @@
+#include "holberton.h"
 #include <stdio.h>
 #include <unistd.h>
 /**
@@ -8,8 +9,6 @@
  */
 int _putchar(char c, char **index)
 {
-	int i;
-
 	if (**index)
 	{
 		**index = c;
@@ -18,8 +17,7 @@ int _putchar(char c, char **index)
 	}
 	(*index) -= 1023;
 	write(1, (*index), 1023);
-	for (i = 0; i < 1023; i++)
-		(*index)[i] = '!';
+	buffer_init(index);
 
 	**index = c;
 	(*index)++;
