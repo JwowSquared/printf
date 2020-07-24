@@ -27,7 +27,6 @@ int _printf(const char *format, ...)
 			get_mods(format, m, j, input);
 			if (m->key != '\0')
 			{
-				printf("width=%d\n", m->width);
 				f = get_print_func(m->key);
 				total += h_m(f, m, input, index);
 				i++;
