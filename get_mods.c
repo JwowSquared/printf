@@ -38,20 +38,17 @@ void get_mods(const char *format, mods *out, int *i, va_list input)
 
 	if (format[k] == 'l' || format[k] == 'h')
 		out->length = format[k++];
-
 	for (j = 0; keys[j]; j++)
 		if (keys[j] == format[k])
 		{
 			out->key = format[k];
 			break;
 		}
-
 	(*i) = k;
 	if (format[k] == '\0')
 		out->eos = 1;
-
 	j = out->eos + out->space + out->zero + out->plus + out->pound;
-	j+= out->minus + out->width + out->precision + out->length;
+	j += out->minus + out->width + out->precision + out->length;
 	if (j >= 0)
 		out->basic = 0;
 }

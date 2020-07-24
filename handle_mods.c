@@ -14,7 +14,7 @@ int h_m(int (*f)(va_list, mods *, char **), mods *m, va_list inp, char **ind)
 	char buffer[1024], *p = buffer, **b = &p, flag = ' ', k = m->key;
 	int i, j = 0, length = 0, total = 0;
 
-	if (k == 'S' || k == 'r' || k == 'R' || k == 'b' || k == '%' || (k == 's' && m->basic))
+	if (m->basic)
 		return (f(inp, m, ind));
 	buffer_init(b);
 	total += f(inp, m, b);
