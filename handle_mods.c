@@ -22,7 +22,7 @@ int h_m(int (*f)(va_list, mods *, char **), mods *m, va_list inp, char **ind)
 	f(inp, m, b);
 	while (&buffer[length] != p)
 		length++;
-	if (length < m->precision)
+	if (length < m->precision && k != 's')
 		j = m->precision - length;
 	if (length < m->width)
 	{
