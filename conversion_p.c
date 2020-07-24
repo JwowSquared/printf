@@ -29,16 +29,23 @@ int printAddress(va_list input, mods *m, char **index)
 	return (total + address_recursion(addr, index));
 }
 
+/**
+* address_recursion - just hex_recursion that uses long ints
+* @i: number to print
+* @index: pointer to buffer
+*
+* Return: _putchar return value
+*/
 int address_recursion(unsigned long int i, char **index)
 {
-        int total = 0;
-        unsigned long int remainder;
+	int total = 0;
+	unsigned long int remainder;
 
-        if (i == 0)
-                return (0);
-        remainder = i % 16;
-        total += address_recursion(i / 16, index);
-        if (remainder > 9)
-                remainder += 39;
-        return (total + _putchar(remainder + 48, index));
+	if (i == 0)
+		return (0);
+	remainder = i % 16;
+	total += address_recursion(i / 16, index);
+	if (remainder > 9)
+		remainder += 39;
+	return (total + _putchar(remainder + 48, index));
 }
