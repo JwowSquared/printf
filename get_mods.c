@@ -6,6 +6,7 @@
  * @format: temp string buffer
  * @out: output modifiers
  * @i: buffer index
+ * @input: va_list to pass to get_int
  * Return: no return
  */
 void get_mods(const char *format, mods *out, int *i, va_list input)
@@ -73,6 +74,7 @@ void mods_init(mods *out)
  * get_int - creates number from string in buffer
  * @format: buffer
  * @i: buffer index
+ * @input: va_list to pull width from in case of *
  * Return: new number
  */
 int get_int(const char *format, int *i, va_list input)
