@@ -18,8 +18,13 @@ int printHex_upper(va_list input, mods *m, char **index)
 		out = va_arg(input, unsigned int);
 
 	if (out == 0)
-		return (total + _putchar(out + 48, index));
-	else if (m->pound)
+	{
+		if (m->precision == 0)
+			return (0);
+		else
+			return (_putchar('0', index));
+	}
+	if (m->pound)
 	{
 		total += _putchar('0', index);
 		total += _putchar('X', index);
