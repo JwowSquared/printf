@@ -17,7 +17,7 @@ int h_m(int (*f)(va_list, mods *, char **), mods *m, va_list inp, char **ind)
 	if (k == 'S' || k == 'r' || k == 'R' || k == 'p' || k == 'b' || k == '%')
 		return (f(inp, m, ind));
 	buffer_init(b);
-	f(inp, m, b);
+	total += f(inp, m, b);
 	while (&buffer[length] != p)
 		length++;
 	if (length < m->precision && k != 's')
