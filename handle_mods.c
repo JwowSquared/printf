@@ -16,9 +16,7 @@ int h_m(int (*f)(va_list, mods *, char **), mods *m, va_list inp, char **ind)
 
 	if (k == 'S' || k == 'r' || k == 'R' || k == 'p' || k == 'b' || k == '%')
 		return (f(inp, m, ind));
-	for (i = 0; i < 1023; i++)
-		buffer[i] = '!';
-	buffer[1023] = '\0';
+	buffer_init(b);
 	f(inp, m, b);
 	while (&buffer[length] != p)
 		length++;
@@ -38,7 +36,10 @@ int h_m(int (*f)(va_list, mods *, char **), mods *m, va_list inp, char **ind)
 		}
 		while (i-- > 0)
 			if (m->minus)
+			{
 				total += _putchar(' ', b);
+				length++;
+			}
 			else
 				total += _putchar(flag, ind);
 	}
