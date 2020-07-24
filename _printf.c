@@ -38,8 +38,8 @@ int _printf(const char *format, ...)
 				free(m);
 				return (-1);
 			}
-			i--;
 		}
+		i--;
 		total += _putchar(format[i++], index);
 	}
 	va_end(input);
