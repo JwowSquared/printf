@@ -38,12 +38,11 @@ int h_m(int (*f)(va_list, mods *, char **), mods *m, va_list inp, char **ind)
 				i--;
 			}
 		}
-		while (i > 0)
+		while (i-- > 0)
 			if (m->minus)
 				total += _putchar(' ', b);
 			else
 				total += _putchar(flag, ind);
-			i--;
 	}
 	while (j-- > 0)
 		total += _putchar('0', ind);
