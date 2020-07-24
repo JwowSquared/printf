@@ -39,15 +39,13 @@ int _printf(const char *format, ...)
 			}
 			total += _putchar('%', index);
 		}
+
 		total += _putchar(format[i++], index);
 	}
 	va_end(input);
 	free(m);
 	while (&buffer[c] != *index)
-	{
-		printf("1=%c | 2=%c\n", buffer[c], buffer[c + 1]);
 		c++;
-	}
 	write(1, &buffer, c);
 	return (total + c);
 }
