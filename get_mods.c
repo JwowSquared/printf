@@ -11,10 +11,12 @@
 void get_mods(const char *format, mods *out, int *i)
 {
 	char *keys = "cs%dibuoxXSprR";
-	int match = 1, j, k = (*i);
+	int j, k = (*i);
 	int *p = &k;
 
 	mods_init(out);
+	if (format[*i] == '\0')
+		return;
 	k = handle_flags(format, out, k);
 	out->width = get_int(format, p);
 	if (out->width == -1)
@@ -37,19 +39,16 @@ void get_mods(const char *format, mods *out, int *i)
 	if (format[k] == 'l' || format[k] == 'h')
 		out->length = format[k++];
 
-	match = 0;
 	for (j = 0; keys[j]; j++)
 		if (keys[j] == format[k])
 		{
 			out->key = format[k];
-			match = 1;
 			break;
 		}
 
-	if (match != 1)
-		mods_init(out);
-	else
-		(*i) = k;
+	(*i) = k;
+	if (format[k] == '\0')
+		out->eos = 1;
 }
 
 /**
@@ -59,6 +58,7 @@ void get_mods(const char *format, mods *out, int *i)
  */
 void mods_init(mods *out)
 {
+	out->eos = 0;
 	out->space = 0;
 	out->zero = 0;
 	out->plus = 0;

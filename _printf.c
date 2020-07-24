@@ -25,20 +25,18 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			if (format[++i] == '\0')
-			{
-				free(m);
-				return (-1);
-			}
+			i++;
 			get_mods(format, m, j);
-			f = get_print_func(m->key);
-			if (f != NULL)
+			if (m->key != '\0')
 			{
+				f = get_print_func(m->key);
 				total += h_m(f, m, input, index);
 				i++;
 				continue;
 			}
-			i--;
+			i++;
+			if (m->eos)
+				break;
 		}
 		total += _putchar(format[i++], index);
 	}

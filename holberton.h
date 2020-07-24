@@ -19,6 +19,7 @@
  */
 typedef struct modifiers
 {
+	int eos;
 	int space;
 	int zero;
 	int plus;
