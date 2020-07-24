@@ -32,8 +32,7 @@ int h_m(int (*f)(va_list, mods *, char **), mods *m, va_list inp, char **ind)
 			flag = '0';
 			if (buffer[0] == '+' || buffer[0] == '-' || buffer[0] == ' ')
 			{
-				total += _putchar(buffer[0], ind);
-				buffer[0] = '0';
+				total += swap_sign(buffer, ind);
 				i--;
 			}
 		}
@@ -45,13 +44,25 @@ int h_m(int (*f)(va_list, mods *, char **), mods *m, va_list inp, char **ind)
 	}
 	if (j > 0)
 		if (buffer[0] == '+' || buffer[0] == '-')
-		{
-			total += _putchar(buffer[0], ind);
-			buffer[0] = '0';
-		}
+			total += swap_sign(buffer, ind);
 	while (j-- > 0)
 		total += _putchar('0', ind);
 	while (++j < length)
 		total += _putchar(buffer[j], ind);
 	return (total);
+}
+
+/**
+* swap_sign - places sign in front of leading zeroes
+* @buffer: local buffer
+* @ind: output buffer
+*
+* Return: _putchar return value
+*/
+int swap_sign(char *buffer, char **ind)
+{
+	char c = buffer[0];
+
+	buffer[0] = '0';
+	return (_putchar(c, ind));
 }
