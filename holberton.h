@@ -47,6 +47,7 @@ int _printf(const char *str, ...);
 int h_m(int (*f)(va_list, mods *, char **), mods *m, va_list inp, char **ind);
 void get_mods(const char *format, mods *out, int *i);
 void mods_init(mods *out);
+void buffer_init(char **buffer);
 int get_int(const char *format, int *i);
 int _atoi(char *buffer);
 int handle_flags(const char *format, mods *out, int k);
