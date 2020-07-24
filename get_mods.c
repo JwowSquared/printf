@@ -59,6 +59,7 @@ void get_mods(const char *format, mods *out, int *i)
  */
 void mods_init(mods *out)
 {
+	out->space = 0;
 	out->zero = 0;
 	out->plus = 0;
 	out->pound = 0;
@@ -127,7 +128,7 @@ int handle_flags(const char *format, mods *out, int k)
 		switch (format[k])
 		{
 			case ' ':
-				out->zero = 0;
+				out->space = 1;
 				k++;
 				break;
 			case '0':

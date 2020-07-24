@@ -31,7 +31,7 @@ int h_m(int (*f)(va_list, mods *, char **), mods *m, va_list inp, char **ind)
 		if (m->zero)
 		{
 			flag = '0';
-			if (buffer[0] == '+' || buffer[0] == '-')
+			if (buffer[0] == '+' || buffer[0] == '-' || buffer[0] == ' ')
 			{
 				total += _putchar(buffer[0], ind);
 				buffer[0] = '0';
