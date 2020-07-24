@@ -11,6 +11,7 @@ int printHex_upper(va_list input, mods *m, char **index)
 {
 	int total = 0;
 	unsigned long int out;
+
 	if (m->length == 'l')
 		out = va_arg(input, unsigned long int);
 	else
