@@ -41,7 +41,6 @@ typedef struct modifiers
 typedef struct specifier
 {
 	char *key;
-
 	int (*f)(va_list, mods *, char **);
 } spec;
 
@@ -52,8 +51,8 @@ void mods_init(mods *out);
 void buffer_init(char **buffer);
 int get_int(const char *format, int *i, va_list input);
 int _atoi(char *buffer);
-int swap_sign(char *buffer, char **ind);
 int handle_flags(const char *format, mods *out, int k);
+int swap_signs(char *buffer, char **ind, int *i);
 int _putchar(char c, char **index);
 int printInteger(va_list input, mods *m, char **index);
 int printUnsigned(va_list input, mods *m, char **index);
