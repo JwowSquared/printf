@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 	char buffer[1024], *p = buffer, **index = &p;
 	mods *m = malloc(sizeof(mods));
 
-	if (m == NULL)
+	if (m == NULL || format == NULL)
 		return (-1);
 
 	for (i = 0; i < 1023; i++)
@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 				continue;
 			}
 			else
-				i--;
+				return (-1);
 		}
 		total += _putchar(format[i++], index);
 	}
