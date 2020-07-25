@@ -25,18 +25,15 @@ int printString(va_list input, mods *m, char **index)
 	int count = 0, total = 0;
 	char *str;
 
-	if (m->precision == -1)
-		m->precision = 1024;
-
 	str = va_arg(input, char *);
 	if (str == NULL)
 		str = "(null)";
-	while (str[count] && count < m->precision)
+	while (str[count] && (count < m->precision || m->precision == -1))
 	{
 		total += _putchar(str[count], index);
 		count++;
 	}
-	m->precision = -1;
+
 	return (total);
 }
 
