@@ -10,25 +10,16 @@
 int printInteger(va_list input, mods *m, char **index)
 {
 	unsigned long int out;
-	short int s = 0;
-	int i = 0, total = 0;
-	long int l = 0;
+	int total = 0;
+	long int i = 0;
 
 	if (m->length == 'l')
 	{
-		l = va_arg(input, long int);
-		if (l < 0)
-			out = l * -1;
+		i = va_arg(input, long int);
+		if (i < 0)
+			out = i * -1;
 		else
-			out = l;
-	}
-	else if (m->length == 'h')
-	{
-		s = va_arg(input, int);
-		if (s < 0)
-			out = s * -1;
-		else
-			out = s;
+			out = i;
 	}
 	else
 	{
@@ -38,12 +29,16 @@ int printInteger(va_list input, mods *m, char **index)
 		else
 			out = i;
 	}
-	if (l < 0 || s < 0 || i < 0)
+
+	if (i < 0)
 		total += _putchar('-', index);
-	else if ((l > 0 || s > 0 || i > 0) && m->plus)
+	else if (i > 0 && m->plus)
 		total += _putchar('+', index);
 	if (out == 0 && m->precision == 0)
 		return (0);
+	else if (out == 0)
+		return (total + _putchar('0', index));
+
 	return (total + int_recursion(out, index));
 }
 
