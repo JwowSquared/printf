@@ -80,10 +80,8 @@ int printHex(va_list input, mods *m, char **index)
 	}
 
 	if (out == 0)
-	{
-		total += _putchar(out + 48, index);
-		return (total);
-	}
+		return (total + _putchar(out + 48, index));
+
 	return (total + hex_recursion(out, index));
 }
 
