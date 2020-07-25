@@ -14,7 +14,7 @@
  * @width: width formatting
  * @precision: precision formatting
  * @length: length formatting
- * @key: format specifier
+ * @key: format specifier to print
  * Description: holds info on specific modifiers
  */
 typedef struct modifiers
@@ -37,6 +37,7 @@ typedef struct modifiers
 typedef struct specifier
 {
 	char *key;
+
 	int (*f)(va_list, mods *, char **);
 } spec;
 

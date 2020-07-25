@@ -1,4 +1,4 @@
-.TH man 3 "21 July 2020" "1.0" "_printf man page"
+.TH man 3 "21 July 2020" "2.0" "_printf man page"
 .SH NAME
 _printf - Format and print stuff to the console
 .SH SYNOPSIS
@@ -19,7 +19,7 @@ _printf is an alternative to regular printf. _printf formats text and prints it 
 .RS
 .nf
 d/i: Accepts integer values
-c: accepts characters
+c: Accepts characters
 s: accepts character pointers
 u: accepts unsigned integers
 b: accepts unsigned integers and prints their binary conversion
@@ -40,6 +40,6 @@ h: accepts a short integer for d/i
 .SH SEE ALSO
 .I printf
 .SH BUGS
-No known bugs.
+The space flag has some small issues :(
 .SH AUTHOR
 Jacob Wagner and Alex Smith

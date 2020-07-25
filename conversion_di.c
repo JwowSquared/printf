@@ -2,7 +2,7 @@
 
 /**
  * printInteger - prints an integer
- * @input: arugments
+ * @input: arugment to handle
  * @m: modifiers
  * @index: buffer
  * Return: no return
