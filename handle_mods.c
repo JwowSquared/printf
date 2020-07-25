@@ -48,7 +48,7 @@ int h_m(int (*f)(va_list, mods *, char **), mods *m, va_list inp, char **ind)
 	while (j-- > 0)
 		total += _putchar('0', ind);
 	*p = '\0';
-	while (buffer[j])
-		total += _putchar(buffer[j++], ind);
+	while (buffer[++j])
+		total += _putchar(buffer[j], ind);
 	return (total);
 }
