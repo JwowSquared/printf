@@ -7,13 +7,14 @@
  * @m: modifiers
  * Return: no return
  */
-void printAddress(va_list input, mods *m, char **index)
+int printAddress(va_list input, mods *m, char **index)
 {
+	int total = 0;
 	unsigned long int addr = va_arg(input, unsigned long int);
 
 	(void)m;
 
-	_putchar('0', index);
-	_putchar('x', index);
-	hex_recursion(addr, index);
+	total += _putchar('0', index);
+	total += _putchar('x', index);
+	return (total + hex_recursion(addr, index));
 }

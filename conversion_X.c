@@ -7,22 +7,23 @@
  * @index: buffer
  * Return: no return
  */
-void printHex_upper(va_list input, mods *m, char **index)
+int printHex_upper(va_list input, mods *m, char **index)
 {
+	int total = 0;
 	unsigned int out = va_arg(input, unsigned int);
 
 	if (m->pound && out != 0)
 	{
-		_putchar('0', index);
-		_putchar('X', index);
+		total += _putchar('0', index);
+		total += _putchar('X', index);
 	}
 
 	if (out == 0)
 	{
-		_putchar(out + 48, index);
-		return;
+		total += _putchar(out + 48, index);
+		return (total);
 	}
-	hex_recursion_upper(out, index);
+	return (total + hex_recursion_upper(out, index));
 }
 
 /**
@@ -31,15 +32,16 @@ void printHex_upper(va_list input, mods *m, char **index)
  * @index: buffer
  * Return: no return
  */
-void hex_recursion_upper(unsigned int i, char **index)
+int hex_recursion_upper(unsigned int i, char **index)
 {
+	int total = 0;
 	unsigned int remainder;
 
 	if (i == 0)
-		return;
+		return (0);
 	remainder = i % 16;
-	hex_recursion_upper(i / 16, index);
+	total += hex_recursion_upper(i / 16, index);
 	if (remainder > 9)
 		remainder += 7;
-	_putchar(remainder + 48, index);
+	return (total + _putchar(remainder + 48, index));
 }

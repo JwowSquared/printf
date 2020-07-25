@@ -4,7 +4,7 @@
 #include <stdarg.h>
 #include <stddef.h>
 #include <stdlib.h>
-
+#include <stdio.h>
 /**
  * struct modifiers - mods for formatting
  * @zero: 0 flag
@@ -37,35 +37,36 @@ typedef struct modifiers
 typedef struct specifier
 {
 	char *key;
-	void (*f)(va_list, mods *, char **);
+
+	int (*f)(va_list, mods *, char **);
 } spec;
 
 int _printf(const char *str, ...);
-void h_m(void (*f)(va_list, mods *, char **), mods *m, va_list inp, char **ind);
+int h_m(int (*f)(va_list, mods *, char **), mods *m, va_list inp, char **ind);
 void get_mods(const char *format, mods *out, int *i);
 void mods_init(mods *out);
 int get_int(const char *format, int *i);
 int _atoi(char *buffer);
 int handle_flags(const char *format, mods *out, int k);
-void _putchar(char c, char **index);
-void printInteger(va_list input, mods *m, char **index);
-void printUnsigned(va_list input, mods *m, char **index);
-void printRot(va_list input, mods *m, char **index);
-void printReverse(va_list input, mods *m, char **index);
-void printChar(va_list input, mods *m, char **index);
-void printString(va_list input, mods *m, char **index);
-void printPercent(va_list input, mods *m, char **index);
-void printBinary(va_list input, mods *m, char **index);
-void printHex(va_list input, mods *m, char **index);
-void printHex_upper(va_list input, mods *m, char **index);
-void printOctal(va_list input, mods *m, char **index);
-void printString_custom(va_list input, mods *m, char **index);
-void printAddress(va_list input, mods *m, char **index);
-void binary_recursion(unsigned int i, char **index);
-void octal_recursion(unsigned int i, char **index);
-void hex_recursion(unsigned long int i, char **index);
-void hex_recursion_upper(unsigned int i, char **index);
-void int_recursion(unsigned long int i, char **index);
-void (*get_print_func(char c))(va_list, mods *, char **);
+int _putchar(char c, char **index);
+int printInteger(va_list input, mods *m, char **index);
+int printUnsigned(va_list input, mods *m, char **index);
+int printRot(va_list input, mods *m, char **index);
+int printReverse(va_list input, mods *m, char **index);
+int printChar(va_list input, mods *m, char **index);
+int printString(va_list input, mods *m, char **index);
+int printPercent(va_list input, mods *m, char **index);
+int printBinary(va_list input, mods *m, char **index);
+int printHex(va_list input, mods *m, char **index);
+int printHex_upper(va_list input, mods *m, char **index);
+int printOctal(va_list input, mods *m, char **index);
+int printString_custom(va_list input, mods *m, char **index);
+int printAddress(va_list input, mods *m, char **index);
+int binary_recursion(unsigned int i, char **index);
+int octal_recursion(unsigned int i, char **index);
+int hex_recursion(unsigned long int i, char **index);
+int hex_recursion_upper(unsigned int i, char **index);
+int int_recursion(unsigned long int i, char **index);
+int (*get_print_func(char c))(va_list, mods *, char **);
 
 #endif /* _PRINTF_ */

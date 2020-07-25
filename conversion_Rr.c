@@ -7,23 +7,22 @@
  * @m: modifiers not used
  * Return: no return
  */
-void printRot(va_list input, mods *m, char **index)
+int printRot(va_list input, mods *m, char **index)
 {
-	int count = 0, i = 0, k = 0;
-	char *str, *s;
-	char s1[] = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ";
+	int count = 0, i = 0, k = 0, total = 0;
+	char *str, *s, s1[] = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ";
 	char s2[] = "nNoOpPqQrRsStTuUvVwWxXyYzZaAbBcCdDeEfFgGhHiIjJkKlLmM";
 
 	(void)m;
 	s = va_arg(input, char *);
 	if (s == NULL)
-		return;
+		return (0);
 
 	while (s[i])
 		i++;
 	str = malloc(sizeof(char) * (i + 1));
 	if (str == NULL)
-		return;
+		return (0);
 
 	while (k <= i)
 	{
@@ -41,11 +40,11 @@ void printRot(va_list input, mods *m, char **index)
 
 	while (str[count])
 	{
-		_putchar(str[count], index);
+		total += _putchar(str[count], index);
 		count++;
 	}
-
 	free(str);
+	return (total);
 }
 
 /**
@@ -55,22 +54,22 @@ void printRot(va_list input, mods *m, char **index)
  * @m: modifiers not used
  * Return: no return
  */
-void printReverse(va_list input, mods *m, char **index)
+int printReverse(va_list input, mods *m, char **index)
 {
-	int count = 0, i = 0, length = 0;
+	int count = 0, i = 0, length = 0, total = 0;
 	char *s, *e, *str, *in;
 	char temp;
 
 	(void)m;
 	in = va_arg(input, char *);
 	if (in == NULL)
-		return;
+		return (0);
 
 	while (in[length])
 		length++;
 	str = malloc(sizeof(char) * (length + 1));
 	if (str == NULL)
-		return;
+		return (0);
 
 	while (i <= length)
 	{
@@ -94,7 +93,7 @@ void printReverse(va_list input, mods *m, char **index)
 	}
 
 	for (count = 0; str[count]; count++)
-		_putchar(str[count], index);
-
+		total += _putchar(str[count], index);
 	free(str);
+	return (total);
 }

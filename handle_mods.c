@@ -5,14 +5,14 @@
  * h_m - applies modifiers to our output
  * @f: function to perform with specific argument
  * @m: modifiers
- * @inp: argument to handle
+ * @inp: arguments
  * @ind: buffer
  * Return: no return
  */
-void h_m(void (*f)(va_list, mods *, char **), mods *m, va_list inp, char **ind)
+int h_m(int (*f)(va_list, mods *, char **), mods *m, va_list inp, char **ind)
 {
 	char buffer[1024], *p = buffer, **b = &p, flag = ' ';
-	int i, j = 0, length = 0;
+	int i, j = 0, length = 0, total = 0;
 
 	for (i = 0; i < 1023; i++)
 		buffer[i] = '!';
@@ -31,23 +31,24 @@ void h_m(void (*f)(va_list, mods *, char **), mods *m, va_list inp, char **ind)
 			flag = '0';
 			if (buffer[0] == '+' || buffer[0] == '-')
 			{
-				_putchar(buffer[0], ind);
+				total += _putchar(buffer[0], ind);
 				buffer[0] = '0';
 				i--;
 			}
 		}
 		while (i > 0)
 			if (m->minus)
-				_putchar(' ', b);
+				total += _putchar(' ', b);
 			else
-				_putchar(flag, ind);
+				total += _putchar(flag, ind);
 			i--;
 	}
 	while (j-- > 0)
-		_putchar('0', ind);
+		total += _putchar('0', ind);
 
 	*p = '\0';
 	i = 0;
 	while (buffer[i])
-		_putchar(buffer[i++], ind);
+		total += _putchar(buffer[i++], ind);
+	return (total);
 }

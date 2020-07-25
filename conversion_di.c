@@ -7,11 +7,11 @@
  * @index: buffer
  * Return: no return
  */
-void printInteger(va_list input, mods *m, char **index)
+int printInteger(va_list input, mods *m, char **index)
 {
 	unsigned long int out;
 	short int s = 0;
-	int i = 0;
+	int i = 0, total = 0;
 	long int l = 0;
 
 	if (m->length == 'l')
@@ -39,12 +39,12 @@ void printInteger(va_list input, mods *m, char **index)
 			out = i;
 	}
 	if (l < 0 || s < 0 || i < 0)
-		_putchar('-', index);
+		total += _putchar('-', index);
 	else if ((l > 0 || s > 0 || i > 0) && m->plus)
-		_putchar('+', index);
+		total += _putchar('+', index);
 	if (out == 0 && m->precision == 0)
-		return;
-	int_recursion(out, index);
+		return (0);
+	return (total + int_recursion(out, index));
 }
 
 /**
@@ -53,13 +53,14 @@ void printInteger(va_list input, mods *m, char **index)
  * @index: buffer
  * Return: no return
  */
-void int_recursion(unsigned long int i, char **index)
+int int_recursion(unsigned long int i, char **index)
 {
+	int total = 0;
 	unsigned long int digit;
 
 	if (i == 0)
-		return;
+		return (0);
 	digit = i % 10;
-	int_recursion(i / 10, index);
-	_putchar(digit + 48, index);
+	total += int_recursion(i / 10, index);
+	return (total + _putchar(digit + 48, index));
 }

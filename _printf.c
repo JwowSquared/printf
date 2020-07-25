@@ -10,11 +10,9 @@
 int _printf(const char *format, ...)
 {
 	int i = 0, total = 0, *j = &i;
-	void (*f)(va_list, mods *, char **);
+	int (*f)(va_list, mods *, char **);
 	va_list input;
-	char buffer[1024];
-	char *p = buffer;
-	char **index = &p;
+	char buffer[1024], *p = buffer, **index = &p;
 	mods *m = malloc(sizeof(mods));
 
 	if (m == NULL)
@@ -34,19 +32,21 @@ int _printf(const char *format, ...)
 			f = get_print_func(m->key);
 			if (f != NULL)
 			{
-				h_m(f, m, input, index);
+				total += h_m(f, m, input, index);
 				i++;
 				continue;
 			}
+			else
+				i--;
 		}
-		_putchar(format[i++], index);
+		total += _putchar(format[i++], index);
 	}
 	va_end(input);
 	free(m);
+	i = 0;
 	**index = '\0';
-	while (buffer[total])
-		total++;
-	write(1, &buffer, total);
-
-	return (total);
+	while (buffer[i])
+		i++;
+	write(1, &buffer, i);
+	return (total + i);
 }
