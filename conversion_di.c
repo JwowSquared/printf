@@ -32,8 +32,10 @@ int printInteger(va_list input, mods *m, char **index)
 
 	if (i < 0)
 		total += _putchar('-', index);
-	else if (i > 0 && m->plus)
+	else if (i >= 0 && m->plus)
 		total += _putchar('+', index);
+	else if (m->space)
+		total += _putchar(' ', index);
 	if (out == 0 && m->precision == 0)
 		return (0);
 	else if (out == 0)

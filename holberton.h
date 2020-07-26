@@ -19,6 +19,7 @@
  */
 typedef struct modifiers
 {
+	int space;
 	int zero;
 	int plus;
 	int pound;
