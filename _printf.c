@@ -36,7 +36,10 @@ int _printf(const char *format, ...)
 			}
 			i++;
 			if (m->eos)
-				break;
+			{
+				free(m);
+				return (-1);
+			}
 		}
 		total += _putchar(format[i++], index);
 	}
