@@ -14,7 +14,7 @@ int h_m(int (*f)(va_list, mods *, char **), mods *m, va_list inp, char **ind)
 	char buffer[1024], *p = buffer, **b = &p, flag = ' ', k = m->key;
 	int i, j = 0, length = 0, total = 0;
 
-	if (k == 'S' || k == 'r' || k == 'R' || k == 'p' || k == 'b' || k == '%')
+	if (k == 'S' || k == 'r' || k == 'R' || k == 'b' || k == '%')
 		return (f(inp, m, ind));
 	buffer_init(b);
 	total += f(inp, m, b);
@@ -23,7 +23,7 @@ int h_m(int (*f)(va_list, mods *, char **), mods *m, va_list inp, char **ind)
 	if (length <= m->precision && k != 's')
 	{
 		j = m->precision - length;
-		if (buffer[0] == '+' || buffer[0] == '-')
+		if (buffer[0] == '+' || buffer[0] == '-' || ' ')
 			j++;
 	}
 	if (length < m->width)
@@ -45,7 +45,7 @@ int h_m(int (*f)(va_list, mods *, char **), mods *m, va_list inp, char **ind)
 				total += _putchar(flag, ind);
 	}
 	if (j > 0)
-		if (buffer[0] == '+' || buffer[0] == '-')
+		if (buffer[0] == '+' || buffer[0] == '-' || buffer[0] == ' ')
 			total += swap_signs(buffer, ind, &j);
 	while (j-- > 0)
 		total += _putchar('0', ind);
