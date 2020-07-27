@@ -52,6 +52,7 @@ void mods_init(mods *out);
 void buffer_init(char **buffer);
 int get_int(const char *format, int *i, va_list input);
 int _atoi(char *buffer);
+int swap_sign(char *buffer, char **ind);
 int handle_flags(const char *format, mods *out, int k);
 int _putchar(char c, char **index);
 int printInteger(va_list input, mods *m, char **index);
