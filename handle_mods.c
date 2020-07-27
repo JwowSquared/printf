@@ -23,7 +23,7 @@ int h_m(int (*f)(va_list, mods *, char **), mods *m, va_list inp, char **ind)
 	if (length <= m->precision && k != 's')
 	{
 		j = m->precision - length;
-		if (j == 0 && (buffer[0] == '+' || buffer[0] == '-'))
+		if (buffer[0] == '+' || buffer[0] == '-')
 			j++;
 	}
 	if (length < m->width)
