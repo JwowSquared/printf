@@ -15,8 +15,7 @@ void get_mods(const char *format, mods *out, int *i)
 	int *p = &k;
 
 	mods_init(out);
-	if (format[*i] == '\0')
-		return;
+
 	k = handle_flags(format, out, k);
 	out->width = get_int(format, p);
 	if (out->width == -1)

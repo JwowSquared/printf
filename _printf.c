@@ -23,9 +23,8 @@ int _printf(const char *format, ...)
 	va_start(input, format);
 	while (format[i])
 	{
-		if (format[i] == '%')
+		if (format[i++] == '%')
 		{
-			i++;
 			get_mods(format, m, j);
 			if (m->key != '\0')
 			{
@@ -34,12 +33,12 @@ int _printf(const char *format, ...)
 				i++;
 				continue;
 			}
-			i++;
 			if (m->eos)
 			{
 				free(m);
 				return (-1);
 			}
+			i--;
 		}
 		total += _putchar(format[i++], index);
 	}
