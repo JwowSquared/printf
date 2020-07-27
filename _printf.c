@@ -43,9 +43,11 @@ int _printf(const char *format, ...)
 	}
 	va_end(input);
 	free(m);
-	**index = '\0';
-	while (buffer[c] || buffer + c != *index)
+	while (&buffer[c] != *index)
+	{
+		printf("1=%c | 2=%c\n", buffer[c], buffer[c + 1]);
 		c++;
+	}
 	write(1, &buffer, c);
 	return (total + c);
 }

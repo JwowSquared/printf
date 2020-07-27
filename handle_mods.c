@@ -19,10 +19,8 @@ int h_m(int (*f)(va_list, mods *, char **), mods *m, va_list inp, char **ind)
 	for (i = 0; i < 1023; i++)
 		buffer[i] = '!';
 	f(inp, m, b);
-	*p = '\0';
-	while (buffer[length] || &buffer[length] != p)
+	while (&buffer[length] != p)
 		length++;
-	*p = '!';
 	if (length < m->precision)
 		j = m->precision - length;
 	if (length < m->width)
@@ -47,7 +45,7 @@ int h_m(int (*f)(va_list, mods *, char **), mods *m, va_list inp, char **ind)
 	while (j-- > 0)
 		total += _putchar('0', ind);
 	*p = '\0';
-	while (buffer[++j])
+	while (&buffer[++j] != p)
 		total += _putchar(buffer[j], ind);
 	return (total);
 }
