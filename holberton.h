@@ -7,6 +7,8 @@
 #include <stdio.h>
 /**
  * struct modifiers - mods for formatting
+ * @eos: flag for get_mods if the end of string is hit
+ * @space: ' ' flag
  * @zero: 0 flag
  * @plus: + flag
  * @pound: # flag
