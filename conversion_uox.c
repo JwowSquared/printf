@@ -9,9 +9,12 @@
  */
 int printUnsigned(va_list input, mods *m, char **index)
 {
-	unsigned int out = va_arg(input, unsigned int);
+	unsigned long int out;
 
-	(void)m;
+	if (m->length == 'l')
+		out = va_arg(input, unsigned long int);
+	else
+		out = va_arg(input, unsigned int);
 
 	if (out == 0)
 		return (_putchar('0', index));
@@ -29,16 +32,20 @@ int printUnsigned(va_list input, mods *m, char **index)
 int printOctal(va_list input, mods *m, char **index)
 {
 	int total = 0;
-	unsigned long int out = va_arg(input, unsigned int);
-
-	if (m->pound && out != 0)
-		total += _putchar('0', index);
+	unsigned long int out;
+	if (m->length == 'l')
+		out = va_arg(input, unsigned long int);
+	else
+		out = va_arg(input, unsigned int);
 
 	if (out == 0)
 	{
 		total += _putchar(out + 48, index);
 		return (total);
 	}
+	else if (m->pound)
+		total += _putchar('0', index)
+;
 	return (total + octal_recursion(out, index));
 }
 
@@ -71,16 +78,19 @@ int octal_recursion(unsigned long int i, char **index)
 int printHex(va_list input, mods *m, char **index)
 {
 	int total = 0;
-	unsigned int out = va_arg(input, unsigned int);
+	unsigned long int out;
+	if (m->length == 'l')
+		out = va_arg(input, unsigned long int);
+	else
+		out = va_arg(input, unsigned int);
 
-	if (m->pound && out != 0)
+	if (out == 0)
+		return (total + _putchar(out + 48, index));
+	else if (m->pound)
 	{
 		total += _putchar('0', index);
 		total += _putchar('x', index);
 	}
-
-	if (out == 0)
-		return (total + _putchar(out + 48, index));
 
 	return (total + hex_recursion(out, index));
 }
@@ -91,10 +101,10 @@ int printHex(va_list input, mods *m, char **index)
  * @index: buffer
  * Return: no return
  */
-int hex_recursion(unsigned int i, char **index)
+int hex_recursion(unsigned long int i, char **index)
 {
 	int total = 0;
-	unsigned int remainder;
+	unsigned long int remainder;
 
 	if (i == 0)
 		return (0);
