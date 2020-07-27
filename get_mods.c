@@ -49,6 +49,11 @@ void get_mods(const char *format, mods *out, int *i, va_list input)
 	(*i) = k;
 	if (format[k] == '\0')
 		out->eos = 1;
+
+	j = out->eos + out->space + out->zero + out->plus + out->pound;
+	j+= out->minus + out->width + out->precision + out->length;
+	if (j >= 0)
+		out->basic = 0;
 }
 
 /**
@@ -58,6 +63,7 @@ void get_mods(const char *format, mods *out, int *i, va_list input)
  */
 void mods_init(mods *out)
 {
+	out->basic = 1;
 	out->eos = 0;
 	out->space = 0;
 	out->zero = 0;
