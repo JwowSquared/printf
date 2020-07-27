@@ -6,9 +6,10 @@
  * @format: temp string buffer
  * @out: output modifiers
  * @i: buffer index
+ * @input: va_list to pass to get_int
  * Return: no return
  */
-void get_mods(const char *format, mods *out, int *i)
+void get_mods(const char *format, mods *out, int *i, va_list input)
 {
 	char *keys = "cs%dibuoxXSprR";
 	int j, k = (*i);
@@ -17,7 +18,7 @@ void get_mods(const char *format, mods *out, int *i)
 	mods_init(out);
 
 	k = handle_flags(format, out, k);
-	out->width = get_int(format, p);
+	out->width = get_int(format, p, input);
 	if (out->width == -1)
 	{
 		mods_init(out);
@@ -27,7 +28,7 @@ void get_mods(const char *format, mods *out, int *i)
 	if (format[k] == '.')
 	{
 		k++;
-		out->precision = get_int(format, p);
+		out->precision = get_int(format, p, input);
 		if (out->precision == -1)
 		{
 			mods_init(out);
@@ -73,12 +74,19 @@ void mods_init(mods *out)
  * get_int - creates number from string in buffer
  * @format: buffer
  * @i: buffer index
+ * @input: va_list to pull width from in case of *
  * Return: new number
  */
-int get_int(const char *format, int *i)
+int get_int(const char *format, int *i, va_list input)
 {
 	char buffer[5];
 	int b = 0;
+
+	if (format[*i] == '*')
+	{
+		(*i)++;
+		return (va_arg(input, int));
+	}
 
 	while (format[*i] >= '0' && format[*i] <= '9')
 	{

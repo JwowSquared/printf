@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			get_mods(format, m, j);
+			get_mods(format, m, j, input);
 			if (m->key != '\0')
 			{
 				f = get_print_func(m->key);
