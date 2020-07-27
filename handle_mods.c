@@ -20,7 +20,7 @@ int h_m(int (*f)(va_list, mods *, char **), mods *m, va_list inp, char **ind)
 		buffer[i] = '!';
 	f(inp, m, b);
 	*p = '\0';
-	while (buffer[length])
+	while (buffer[length] || &buffer[length] != p)
 		length++;
 	*p = '!';
 	if (length < m->precision)
